@@ -14,8 +14,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// mongoose.connect('mongodb+srv://pacecart:Kronose@007@pacecart-psmxs.gcp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, });
-mongoose.connect('mongodb://127.0.0.1:27017/pacecart', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, });
+mongoose.connect('mongodb+srv://pacecart:Kronose@007@pacecart-psmxs.gcp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, });
+// mongoose.connect('mongodb://127.0.0.1:27017/pacecart', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, });
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
