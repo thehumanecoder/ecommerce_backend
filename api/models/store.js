@@ -8,6 +8,9 @@ const storeSchema = mongoose.Schema({
         required: true,
         unique: true,
     },
+    status: {
+        type: String,
+    },
     email: {
         type: String,
         required: true,
@@ -23,7 +26,7 @@ const storeSchema = mongoose.Schema({
         required: true,
     },
     role: {
-        type: Number,
+        type: String,
         required: true
     }
 });

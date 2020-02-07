@@ -28,6 +28,7 @@ router.post('/add', (req, res, next) => {
                                 name: req.body.name,
                                 email: req.body.email,
                                 password: hash,
+                                status: "Pending",
                                 role: req.body.role,
                                 category: req.body.category,
                             });
@@ -82,6 +83,7 @@ router.post('/login', (req, res, next) => {
                             store_id: store.id,
                             store_email: store.email,
                             category: store.category,
+                            status: "Pending",
                             role: store.role
                         })
 
@@ -106,7 +108,7 @@ router.post('/login', (req, res, next) => {
         });
 });
 
-router.delete('/:id', (req, res, next) => {
+router.post('/delete/:id', (req, res, next) => {
     Store.findByIdAndDelete({ _id: req.params.id })
         .exec()
         .then(result => {
