@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const bakeryProductSchema = mongoose.Schema({
+const gymProductSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    storeid :mongoose.Schema.Types.ObjectId,
+    storeId:mongoose.Schema.Types.storeId,
     name: {
         type: String,
         required: true
@@ -19,13 +19,7 @@ const bakeryProductSchema = mongoose.Schema({
     size:{
         type:String,
     },
-    grain:{
-        type:String
-    },
     description:{
-        type:String
-    },
-    vegitation:{
         type:String
     },
     price:{
@@ -49,4 +43,4 @@ const bakeryProductSchema = mongoose.Schema({
    
 });
 
-module.exports = mongoose.model('bakeryProduct', bakeryProductSchema);
+module.exports = mongoose.model('gymProduct', gymProductSchema);

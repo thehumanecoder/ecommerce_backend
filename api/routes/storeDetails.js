@@ -45,8 +45,34 @@ router.post('/:storeid',(req,res,next)=>{
    .catch()
 })
 
-router.post('/update/:storeid',(req,res,next)=>{
-    var id = ObjectId(storeid);
-    StoreDetails.findOne({storeid:id})
+router.post('/update/:d',(req,res,next)=>{
+    StoreDetails.findOne({storeid:id},{
+        $set:{
+            storeid: req.body.storeid,
+            gst: req.body.gst,
+            location: req.body.location,
+            address: req.body.address,
+            ownername: req.body.ownername,
+            ownermobile: req.body.ownermobile,
+            accountdeails: req.body.accountdeails,
+        }
+    })
+    .exec()
+    .then(
+        result=>{
+            console.log(result);
+            res.status(200).json({
+                message:'Store Details updated Successfully'
+            });
+        }
+    )
+    .catch(
+        err=>{
+            console.log(err);
+            res.status(500).json({
+                error:err
+            });
+        }
+    )
 });
 module.exports = router;

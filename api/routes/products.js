@@ -6,36 +6,36 @@ const random = require('random');
 
 const Product = require('../models/products');
 
-//for saving an image
-function isString (value) {
-    return typeof value === 'string' || value instanceof String;
-    }
-const storage = multer.diskStorage({
-    //defining storage destination
-    destination: function(req, file, cb) {
-        cb(null, './uploads/')
-    },
-    //creating and handling file name
-    filename: function(req, file, cb) {
-        cb(null, random.int(min = 1, max = 1000000) + file.originalname)
-    }
-});
-//file filter for etension and type validation
-const FileFilter = (re, file, cb) => {
-        if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpg') {
-            cb(null, true)
-        } else {
-            cb(null, false)
-        }
-    }
-    //image upload controller
-const upload = multer({
-    storage: storage,
-    limits: {
-        fileSize: 1024 * 1024 * 5
-    },
-    fileFilter: FileFilter
-});
+// //for saving an image
+// function isString (value) {
+//     return typeof value === 'string' || value instanceof String;
+//     }
+// const storage = multer.diskStorage({
+//     //defining storage destination
+//     destination: function(req, file, cb) {
+//         cb(null, './uploads/')
+//     },
+//     //creating and handling file name
+//     filename: function(req, file, cb) {
+//         cb(null, random.int(min = 1, max = 1000000) + file.originalname)
+//     }
+// });
+// //file filter for etension and type validation
+// const FileFilter = (re, file, cb) => {
+//         if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpg') {
+//             cb(null, true)
+//         } else {
+//             cb(null, false)
+//         }
+//     }
+//     //image upload controller
+// const upload = multer({
+//     storage: storage,
+//     limits: {
+//         fileSize: 1024 * 1024 * 5
+//     },
+//     fileFilter: FileFilter
+// });
 
 //Getting all the products
 router.get('/', (req, res, next) => {
