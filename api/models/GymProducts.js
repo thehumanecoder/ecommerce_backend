@@ -39,6 +39,10 @@ const gymProductSchema = mongoose.Schema({
     },
     productImage:{
         type:String
+    },
+    available:{
+        type:Boolean,
+        required:true,
     }
    
 });
